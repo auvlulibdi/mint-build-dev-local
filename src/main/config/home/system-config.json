@@ -106,7 +106,8 @@
                 "description": "Harvester queue for incoming JSON objects.",
                 "priority": "7",
                 "config": {
-                    "name": "jsonHarvester"
+                    "name": "jsonHarvester",
+                    "shouldPark" : true
                 }
             }
         ]
