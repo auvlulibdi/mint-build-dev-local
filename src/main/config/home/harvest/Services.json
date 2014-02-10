@@ -8,13 +8,13 @@
             "headerRow": true,
             "delimiter": ",",
             "ignoredFields": [],
-            "includedFields" : ["ID", "Name", "Type", "ANZSRC_FOR_1", "ANZSRC_FOR_2", "ANZSRC_FOR_3", "Location", "Coverage_Temporal_From", "Coverage_Temporal_To", "Coverage_Spatial_Type", "Coverage_Spatial_Value", "Existence_Start", "Existence_End", "Website", "Data_Quality_Information", "Reuse_Information", "Access_Policy", "URI", "Description"]
+            "includedFields" : ["ID", "Name", "Type", "ANZSRC_FOR_1", "ANZSRC_FOR_2", "ANZSRC_FOR_3", "Location", "Coverage_Temporal_From", "Coverage_Temporal_To", "Coverage_Spatial_Type", "Coverage_Spatial_Value", "Existence_Start", "Existence_End", "Website", "Data_Quality_Information", "Reuse_Information", "Access_Policy", "URI", "Description", "Group"]
         }
     },
 
     "transformer": {
         "curation": ["local"],
-        "metadata": ["jsonVelocity"]
+        "metadata": ["jsonVelocity", "ingest-relations"]
     },
     "curation": {
         "neverPublish": false,
@@ -28,7 +28,18 @@
         "jsonVelocity": {
             "templatesPath" : "${fascinator.home}/templates/services",
             "portalId": "Services"
-        }
+        },
+        "ingest-relations": {
+	    	"sourcePid": "metadata.json",
+            "sourcePath": ["data"],
+            "relations": {
+				"Group": {
+                    "prefix": "redbox-mint.googlecode.com/parties/group/",
+		    		"relation": "isManagedBy",
+                    "reverseRelation": "isManagerOf"
+                }
+            }
+     	}
     },
 
     "indexer": {
