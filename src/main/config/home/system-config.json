@@ -24,30 +24,16 @@
         }
     },
     "authentication": {
-        "type": "internal,ldap",
+        "type": "internal",
         "internal": {
             "path": "${fascinator.home}/security/users.properties"
         }
     },
     "roles": {
-        "type": "internal,ldap",
+        "type": "internal",
         "internal": {
             "path": "${fascinator.home}/security/roles.properties"
-        },
-        "ldap": { 
-          "baseURL": "${ldap.baseURL}",
-          "baseDN": "${ldap.baseDN}",
-          "ldapSecurityPrincipal": "${ldap.SecurityPrincipal}",
-          "ldapSecurityCredentials": "${ldap.SecurityCredentials}",
-          "idAttribute": "${ldap.idAttribute}",
-          "ldapRoleAttribute": "${ldap.RoleAttribute}",
-          "ldapRoleMap": [
-             {
-                 "ldapRoleAttrValue": "${ldap.RoleAttr.Value}"
-                 "roles": ["${ldap.roles}"]
-             }
-          ]
-        } 
+        }
     },
     "storage": {
         "type": "file-system",
