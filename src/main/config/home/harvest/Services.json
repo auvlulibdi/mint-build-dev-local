@@ -4,17 +4,17 @@
         "csv": {
             "fileLocation": "${fascinator.home}/data/Services.csv",
             "idColumn": "ID",
-            "recordIDPrefix": "redbox-mint.googlecode.com/services/",
+            "recordIDPrefix": "",
             "headerRow": true,
             "delimiter": ",",
             "ignoredFields": [],
-            "includedFields" : ["ID", "Name", "Type", "ANZSRC_FOR_1", "ANZSRC_FOR_2", "ANZSRC_FOR_3", "Location", "Coverage_Temporal_From", "Coverage_Temporal_To", "Coverage_Spatial_Type", "Coverage_Spatial_Value", "Existence_Start", "Existence_End", "Website", "Data_Quality_Information", "Reuse_Information", "Access_Policy", "URI", "Description", "Group"]
+            "includedFields" : ["ID", "Name", "Type", "ANZSRC_FOR_1", "ANZSRC_FOR_2", "ANZSRC_FOR_3", "Location", "Coverage_Temporal_From", "Coverage_Temporal_To", "Coverage_Spatial_Type", "Coverage_Spatial_Value", "Existence_Start", "Existence_End", "Website", "Data_Quality_Information", "Reuse_Information", "Access_Policy", "URI", "Description"]
         }
     },
 
     "transformer": {
         "curation": ["local"],
-        "metadata": ["jsonVelocity", "ingest-relations"]
+        "metadata": ["jsonVelocity"]
     },
     "curation": {
         "neverPublish": false,
@@ -28,18 +28,7 @@
         "jsonVelocity": {
             "templatesPath" : "${fascinator.home}/templates/services",
             "portalId": "Services"
-        },
-        "ingest-relations": {
-	    	"sourcePid": "metadata.json",
-            "sourcePath": ["data"],
-            "relations": {
-				"Group": {
-                    "prefix": "redbox-mint.googlecode.com/parties/group/",
-		    		"relation": "isManagedBy",
-                    "reverseRelation": "isManagerOf"
-                }
-            }
-     	}
+        }
     },
 
     "indexer": {

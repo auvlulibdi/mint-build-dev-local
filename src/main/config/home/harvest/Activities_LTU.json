@@ -1,0 +1,53 @@
+{
+    "harvester": {
+        "type": "csv",
+        "csv": {
+            "fileLocation": "${fascinator.home}/data/Activities_LTU.csv",
+            "idColumn": "ID",
+            "recordIDPrefix": "",
+            "headerRow": true,
+            "delimiter": ",",
+            "ignoredFields": ["Description"],
+            "includedFields" : [
+                "ID",
+                "Submit Year",
+                "Start Year",
+                "Title",
+                "Institution",
+                "Investigators",
+                "Discipline"
+            ]
+        }
+    },
+
+    "transformer": {
+        "curation": ["local"],
+        "metadata": ["jsonVelocity"]
+    },
+    "curation": {
+        "neverPublish": false,
+        "alreadyCurated": false 
+    },
+
+    "transformerOverrides": {
+        "local": {
+            "template": "${server.url.base}published/detail/[[OID]]"
+        },
+        "jsonVelocity": {
+            "templatesPath" : "${fascinator.home}/templates/activities",
+            "portalId": "Activities"
+        }
+    },
+
+    "indexer": {
+        "script": {
+            "type": "python",
+            "rules": "Activities_LTU.py"
+        },
+        "params": {
+            "repository.name": "Local Research Projects",
+            "repository.type": "Research Activities"
+        }
+    }
+}
+

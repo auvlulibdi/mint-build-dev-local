@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Activities" pageWidth="3500" pageHeight="595" orientation="Landscape" columnWidth="3460" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cec3a99a-ad70-444c-8e48-98beffb5e14e">
+  <property name="ireport.zoom" value="1.0"/>
+  <property name="ireport.x" value="1354"/>
+  <property name="ireport.y" value="0"/>
+  <queryString>
+    <![CDATA[SELECT DISTINCT "CURRENT_COST_CENTRES"."FACULTY", "RM4XPRO"."CPROJECT_PK", "RM4XPRO"."SSTATUS_NAME", "RM4XPRO"."SINTCONT_NAME", "CURRENT_COST_CENTRES"."SCHOOL", "CURRENT_COST_CENTRES"."DEPARTMENT", "RM4XPRO"."SPROTITLE", "RM4XPRO"."DSTART", "RM4XPRO"."DEND", "RM4XPRO"."CAOU_CODE", "RM4XPRO"."SINTCONT_CODE", "VW_ALL_PROJ_AUTHS"."AUTHORS_PIPED", "RM4XPRO"."MDESC"
+FROM   ("RM4SERV"."RM4XPRO" "RM4XPRO" LEFT OUTER JOIN "LTU_RO"."CURRENT_COST_CENTRES" "CURRENT_COST_CENTRES" ON "RM4XPRO"."CAOU"="CURRENT_COST_CENTRES"."CAOU") INNER JOIN "LTU_RO"."VW_ALL_PROJ_AUTHS" "VW_ALL_PROJ_AUTHS" ON "RM4XPRO"."CPROJECT"="VW_ALL_PROJ_AUTHS"."CPROJECT"
+WHERE  ("RM4XPRO"."SSTATUS_NAME" LIKE 'Approved%' OR "RM4XPRO"."SSTATUS_NAME" LIKE 'Executed%')
+ORDER BY "CURRENT_COST_CENTRES"."FACULTY", "RM4XPRO"."SINTCONT_NAME", "RM4XPRO"."CPROJECT_PK"]]>
+  </queryString>
+  <field name="FACULTY" class="java.lang.String"/>
+  <field name="CPROJECT_PK" class="java.lang.String"/>
+  <field name="SSTATUS_NAME" class="java.lang.String"/>
+  <field name="SINTCONT_NAME" class="java.lang.String"/>
+  <field name="SCHOOL" class="java.lang.String"/>
+  <field name="DEPARTMENT" class="java.lang.String"/>
+  <field name="SPROTITLE" class="java.lang.String"/>
+  <field name="DSTART" class="java.sql.Timestamp"/>
+  <field name="DEND" class="java.sql.Timestamp"/>
+  <field name="CAOU_CODE" class="java.lang.String"/>
+  <field name="SINTCONT_CODE" class="java.lang.String"/>
+  <field name="AUTHORS_PIPED" class="java.lang.String"/>
+  <field name="MDESC" class="java.lang.String"/>
+  <detail>
+    <band height="120" splitType="Stretch">
+      <textField>
+        <reportElement uuid="919506c9-4ecf-4cee-9648-13a88b259075" x="0" y="0" width="82" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{CPROJECT_PK}]]></textFieldExpression>
+      </textField>
+      <textField pattern="dd/MM/yy" isBlankWhenNull="true">
+        <reportElement uuid="bb1af64d-e7a1-494e-8b5d-0f70d87a5ef3" x="148" y="0" width="72" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{DSTART}]]></textFieldExpression>
+      </textField>
+      <textField pattern="dd/MM/yy" isBlankWhenNull="true">
+        <reportElement uuid="7b156199-fb57-4de8-92fe-be356725cc9c" x="82" y="0" width="66" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{DEND}]]></textFieldExpression>
+      </textField>
+      <textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+        <reportElement uuid="d326e96e-0470-4e0a-83fc-1b7fd230aebd" x="220" y="0" width="1212" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{SPROTITLE}.replaceAll( "\n", " ").replaceAll( "\r", " ").trim()]]></textFieldExpression>
+      </textField>
+      <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+        <reportElement uuid="725c953b-2f13-46aa-b0c6-09e92baecfd5" x="1432" y="0" width="1228" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{MDESC}.replaceAll( "\n", " ").replaceAll( "\r", " ").trim()]]></textFieldExpression>
+      </textField>
+      <staticText>
+        <reportElement uuid="955f063a-811f-425b-a115-4d1dad4dd5b4" x="2660" y="0" width="100" height="20"/>
+        <textElement/>
+        <text><![CDATA[La Trobe University]]></text>
+      </staticText>
+      <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+        <reportElement uuid="82d8701b-8716-4826-8eed-c4de0f819534" x="2760" y="0" width="600" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{AUTHORS_PIPED}.trim()]]></textFieldExpression>
+      </textField>
+      <textField isStretchWithOverflow="true" isBlankWhenNull="true">
+        <reportElement uuid="1d0ad1fb-18f0-4c66-8a97-ae95b8e20ce0" x="3360" y="0" width="100" height="20"/>
+        <textElement/>
+        <textFieldExpression><![CDATA[$F{SCHOOL}.trim()]]></textFieldExpression>
+      </textField>
+    </band>
+  </detail>
+</jasperReport>

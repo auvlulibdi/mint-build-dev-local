@@ -2,8 +2,8 @@
     "version": "1.1.0.1",
     "redbox.version.string": "${redbox.version}",
     "redbox.identity": {
-        "institution": "University of Examples",
-        "RIF-CS Group": "The University of Examples, Australia"
+        "institution": "${redbox.Institution}",
+        "RIF-CS Group": "${redbox.RIFCSGroup}"
     },
     "configured": true,
     "urlBase": "${server.url.base}",
@@ -24,16 +24,30 @@
         }
     },
     "authentication": {
-        "type": "internal",
+        "type": "internal,ldap",
         "internal": {
             "path": "${fascinator.home}/security/users.properties"
         }
     },
     "roles": {
-        "type": "internal",
+        "type": "internal,ldap",
         "internal": {
             "path": "${fascinator.home}/security/roles.properties"
-        }
+        },
+        "ldap": { 
+          "baseURL": "${ldap.baseURL}",
+          "baseDN": "${ldap.baseDN}",
+          "ldapSecurityPrincipal": "${ldap.SecurityPrincipal}",
+          "ldapSecurityCredentials": "${ldap.SecurityCredentials}",
+          "idAttribute": "${ldap.idAttribute}",
+          "ldapRoleAttribute": "${ldap.RoleAttribute}",
+          "ldapRoleMap": [
+             {
+                 "ldapRoleAttrValue": "${ldap.RoleAttr.Value}"
+                 "roles": ["${ldap.roles}"]
+             }
+          ]
+        } 
     },
     "storage": {
         "type": "file-system",
@@ -108,10 +122,10 @@
         "curationRequiresConfirmation": false,
         "pidProperty": "localPid",
         "nlaIntegration": {
-            "enabled": false,
-            "pidProperty": "nlaPid",
-            "agencyCode": "TO-DO",
-            "agencyName": "The University of Examples, Australia",
+            "enabled": true,
+            "pidProperty": "${redbox.pidProperty}",
+            "agencyCode": "${redbox.agencyCode}",
+            "agencyName": "${redbox.agencyName}",
             "includeTest": {
                 "repository.name": "People"
             }

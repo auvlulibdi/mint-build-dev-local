@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!-- 20140806 : cja : see settings.xml for property assignments -->
+
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.googlecode.redbox-mint</groupId>
-  <artifactId>mint-local-curation-demo</artifactId>
-  <version>1.7-SNAPSHOT</version>
+  <groupId>ltudiginf.build.maven.java</groupId>
+  <artifactId>mint-build-ltu</artifactId>
+  <version>40-SNAPSHOT</version>
   <packaging>${packaging}</packaging>
-  <name>The Mint - Local Curation Demo</name>
+  <name>Mint - La Trobe University</name>
+  <url>http://ltudiginf:8080/job/mint-build-ltu/</url>
   <parent>
     <groupId>com.googlecode.redbox-mint</groupId>
     <artifactId>mint</artifactId>
-    <version>1.7-SNAPSHOT</version>
+    <version>1.6.2</version>
   </parent>
+
   <properties>
     <!-- Used in build -->
-    <mint.version>1.7-SNAPSHOT</mint.version>
-    <!-- Runtime values, will replace placeholders
-             in config and control scripts -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <mint.version>1.6.2</mint.version>
+
+    <!-- Runtime values, will replace placeholders in config and control scripts -->
+    <!-- 20140806 : cja : see settings.xml for (other) property assignments -->
     <packaging>pom</packaging>
-    <app.location.windows>${project.home}</app.location.windows>
     <app.location.linux>${project.home}</app.location.linux>             
     <server.port>9001</server.port>
     <amq.port>9201</amq.port>
@@ -28,65 +35,155 @@
     <dir.solr>${project.home}/solr</dir.solr>
     <dir.storage>${project.home}/storage</dir.storage>
     <dir.geonames>${dir.home}/geonames/solr</dir.geonames>
-    <server.url.base>http://${ip.address}:${server.port}/mint/</server.url.base>
-    <smtp.host>localhost</smtp.host>
-    <admin.email>admin@localhost</admin.email>
-    <!-- Control scripts try to auto-detect proxy. Use this value if you
-             want Java to specifically exclude certain hosts from proxying. -->
+
+    <!-- Control scripts try to auto-detect proxy. 
+         Use this value if you want Java to specifically exclude certain hosts from proxying.  -->
     <non.proxy.hosts>localhost</non.proxy.hosts>
+
   </properties>
+
   <dependencies>
     <!-- Mint Core - We want to explicitly define versions here because
              ReDBox is listed as both a dependency and a parent. Some odd
              consequences of using ${project.version} can result -->
+    <!-- RunReport -->
+
+    <!-- Run Report plug-in -->
+    <dependency>
+      <groupId>ltudiginf.build.maven.java</groupId>
+      <artifactId>RunReport</artifactId>
+      <version>10-SNAPSHOT</version>
+    </dependency>
+
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>mint-project</artifactId>
       <type>pom</type>
-      <version>1.7-SNAPSHOT</version>
+      <version>${mint.version}</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>mint</artifactId>
       <type>pom</type>
-      <version>1.7-SNAPSHOT</version>
+      <version>${mint.version}</version>
+
+    <!-- Stop warning about multiple slf4j bindings -->
+    <exclusions>
+      <exclusion> 
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+      </exclusion>
+      <exclusion> 
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+      </exclusion>
+    </exclusions>  
+
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>mint-config</artifactId>
-      <version>1.7-SNAPSHOT</version>
+      <version>${mint.version}</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>plugin-transaction-curation-mint</artifactId>
-      <version>1.7-SNAPSHOT</version>
+      <version>${mint.version}</version>
     </dependency>
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>sruclient-mint</artifactId>
-      <version>1.7-SNAPSHOT</version>
+      <version>${mint.version}</version>
     </dependency>
     <!-- Mint Curation Plugin -->
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>plugin-transformer-local</artifactId>
-      <version>1.7-SNAPSHOT</version>
+      <version>${mint.version}</version>
     </dependency>
     <!-- Clean up a dependency error raised during 1.6.1 redbox release -->
     <dependency>
       <groupId>com.googlecode.the-fascinator</groupId>
       <artifactId>fascinator-portal</artifactId>
       <type>warpath</type>
-      <version>1.2-SNAPSHOT</version>
+      <version>1.1.5</version>
     </dependency>
+
   </dependencies>
+
   <profiles>
+
+    <profile>
+      <id>rbm-ltu-tst</id>
+      <properties>
+        <server.name>ltudiginf</server.name>
+        <server.domain>latrobe.edu.au</server.domain>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>rbm-ltu-dev</id>
+      <properties>
+        <server.name>rbmdev</server.name>
+        <server.domain>latrobe.edu.au</server.domain>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>rbm-ltu-prd</id>
+      <properties>
+        <server.name>rbm</server.name>
+        <server.domain>latrobe.edu.au</server.domain>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>redbox</id>
+      <properties>
+        <server.type>redbox</server.type>
+        <server.port>9000</server.port>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>mint</id>
+      <properties>
+        <server.type>mint</server.type>
+        <server.port>9001</server.port>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>rbm-ltu</id>
+
+      <properties>
+
+        <!-- see http://maven.apache.org/guides/mini/guide-encryption.html for details on how to encrypt passwords -->
+
+	<jasper.list.activities.field.names>ID,Submit Year,Start Year,Title,Description,Institution,Investigators,Discipline</jasper.list.activities.field.names>
+	<jasper.people.field.names>ID,Given_Name,Other_Names,Family_Name,Pref_Name,Honorific,Email,Job_Title,GroupID_1,GroupID_2,GroupID_3,ANZSRC_FOR_1,ANZSRC_FOR_2,ANZSRC_FOR_3,URI,NLA_Party_Identifier,ResearcherID,openID,Personal_URI,Personal_Homepage,Staff_Profile_Homepage,Description</jasper.people.field.names>
+ 
+        <server.url.base>https://${server.name}.${server.domain}</server.url.base>
+        <server.url>${server.url.base}:${server.port}/${server.type}</server.url>
+
+        <redbox.agencyCode>AU-VLU</redbox.agencyCode>
+        <redbox.agencyName>La Trobe University</redbox.agencyName>
+        <redbox.pidProperty>nlaPid</redbox.pidProperty>
+
+        <smtp.host>{Ew4Zg6L2hA0HYFspL7tybnBWRz1MSbS7ffkti8plP8xRp+GzRdE2GaKFtTLmSRWf}</smtp.host>
+        <admin.email>{mhGy28m0IqQHH+lT4RlDQXjOSOGtsgRdvIxcqYQ9J98nz3tZRZ/6ZIMaMGH9cayP}</admin.email>
+
+        <redbox.Institution>La Trobe University</redbox.Institution>
+        <redbox.RIFCSGroup>La Trobe University</redbox.RIFCSGroup>
+
+      </properties>
+
+    </profile>
+
     <profile>
       <id>build-package</id>
       <properties>
-        <app.location.windows>c:/tf2/mint</app.location.windows>
     	<app.location.linux>/opt/mint</app.location.linux>
-        <server.url.base>http://localhost:${server.port}/mint/</server.url.base>
       </properties>
       <!-- Used for creating an install - omits local build system settings -->
       <build>
@@ -112,6 +209,7 @@
         </plugins>
       </build>
     </profile>
+
     <profile>
       <id>ide</id>
       <properties>
@@ -119,6 +217,7 @@
         <project.home>../</project.home>
       </properties>
     </profile>
+
   </profiles>
   <!-- The standard build/deploy process for making a server -->
   <build>
@@ -297,39 +396,95 @@
           </execution>
         </executions>
       </plugin>
+
+      <!-- 20140811 : cja : start -->
+      <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.7</version>
+          <configuration>
+              <deployAtEnd>true</deployAtEnd>
+          </configuration>
+      </plugin>
+      <!-- 20140811 : cja : stop -->
+      <!-- 20140805 : cja : http://axelfontaine.com/blog/final-nail.html : start -->
+      <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>versions-maven-plugin</artifactId>
+          <version>2.1</version>
+      </plugin>
+      <plugin>
+          <artifactId>maven-scm-plugin</artifactId>
+          <version>1.8.1</version>
+          <configuration>
+              <tag>${project.artifactId}-${project.version}</tag>
+              <!-- <tag>TestCJA.10</tag> -->
+          </configuration>
+      </plugin>
+      <!-- 20140805 : cja : http://axelfontaine.com/blog/final-nail.html : stop -->
+
     </plugins>
   </build>
+
   <repositories>
+
     <repository>
       <id>fascinator-snapshots</id>
       <url>http://dev.redboxresearchdata.com.au/nexus/content/repositories/central-snapshots/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
+      <releases><enabled>false</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
     </repository>
+
     <repository>
       <id>redbox-nexus</id>
       <url>http://dev.redboxresearchdata.com.au/nexus/content/groups/public/</url>
+      <releases><enabled>true</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
     </repository>
+
+    <repository>
+      <id>pentaho</id>
+      <url>http://repository.pentaho.org/artifactory/pentaho/</url>
+      <releases><enabled>true</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+
   </repositories>
+
+  <pluginRepositories>
+
+    <pluginRepository>
+      <id>redbox-nexus</id>
+      <url>http://dev.redboxresearchdata.com.au/nexus/content/groups/public/</url>
+      <releases><enabled>true</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
+    </pluginRepository>
+
+  </pluginRepositories>
+
   <scm>
-    <url>https://github.com/redbox-mint/mint-build-dev-local</url>
-    <developerConnection>scm:git:https://github.com/redbox-mint/mint-build-dev-local</developerConnection>
-    <tag>HEAD</tag>
+    <connection>scm:git:ssh://git@github.com/auvlulibdi/mint-build-ltu.git</connection>
   </scm>
+
   <distributionManagement>
-		<snapshotRepository>
-			<id>redbox-nexus-snapshots</id>
-			<name>Redbox Nexus Snapshots</name>
-			<url>http://dev.redboxresearchdata.com.au/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-		<repository>
-			<id>redbox-nexus-releases</id>
-			<name>Redbox Nexus Releases</name>
-			<url>http://dev.redboxresearchdata.com.au/nexus/content/repositories/releases/</url>
-		</repository>
-	</distributionManagement>
+    <snapshotRepository>
+      <id>nexus-ltu</id>
+      <name>Nexus Snapshots LTU</name>
+      <url>http://ltudiginf:8081/nexus/content/repositories/snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>nexus-ltu</id>
+      <name>Nexus Releases LTU</name>
+      <url>http://ltudiginf:8081/nexus/content/repositories/releases/</url>
+    </repository>
+  </distributionManagement>
+
+<!--
+  <activeProfiles>
+    <activeProfile>mint</activeProfile>
+    <activeProfile>rbm-ltu-tst</activeProfile>
+    <activeProfile>rbm-ltu</activeProfile>
+  </activeProfiles>
+-->
+
 </project>
+

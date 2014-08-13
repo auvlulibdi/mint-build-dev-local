@@ -4,7 +4,7 @@
         "csv": {
             "fileLocation": "${fascinator.home}/data/Group_Sample.csv",
             "idColumn": "ID",
-            "recordIDPrefix": "redbox-mint.googlecode.com/parties/group/",
+            "recordIDPrefix": "",
             "headerRow": true,
             "delimiter": ",",
             "ignoredFields": [],
@@ -27,7 +27,7 @@
             "sourcePath": ["data"],
             "relations": {
                 "Parent_Group_ID": {
-                    "prefix": "redbox-mint.googlecode.com/parties/group/",
+                    "prefix": "",
                     "relation": "isPartOf",
                     "reverseRelation": "hasPart"
                 }
