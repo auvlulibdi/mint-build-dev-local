@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ltudiginf.build.maven.java</groupId>
   <artifactId>mint-build-ltu</artifactId>
-  <version>40-SNAPSHOT</version>
+  <version>48-SNAPSHOT</version>
   <packaging>${packaging}</packaging>
   <name>Mint - La Trobe University</name>
   <url>http://ltudiginf:8080/job/mint-build-ltu/</url>
