@@ -4,7 +4,7 @@
   <!-- 20140806 : cja : see settings.xml for property assignments -->
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>ltudiginf.build.maven.java</groupId>
+  <groupId>au.edu.latrobe.ltudiginf</groupId>
   <artifactId>mint-build-ltu</artifactId>
   <version>48-SNAPSHOT</version>
   <packaging>${packaging}</packaging>
@@ -50,7 +50,7 @@
 
     <!-- Run Report plug-in -->
     <dependency>
-      <groupId>ltudiginf.build.maven.java</groupId>
+      <groupId>au.edu.latrobe.ltudiginf</groupId>
       <artifactId>RunReport</artifactId>
       <version>65</version>
     </dependency>
