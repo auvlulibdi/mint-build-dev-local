@@ -17,10 +17,13 @@
   </parent>
 
   <properties>
+
+
     <!-- Used in build -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <mint.version>1.6.2</mint.version>
+    <project.home>/opt/mint-${mint.version}</project.home>
 
     <!-- Runtime values, will replace placeholders in config and control scripts -->
     <!-- 20140806 : cja : see settings.xml for (other) property assignments -->
@@ -47,13 +50,6 @@
              ReDBox is listed as both a dependency and a parent. Some odd
              consequences of using ${project.version} can result -->
     <!-- RunReport -->
-
-    <!-- Run Report plug-in -->
-    <dependency>
-      <groupId>au.edu.latrobe.ltudiginf</groupId>
-      <artifactId>RunReport</artifactId>
-      <version>65</version>
-    </dependency>
 
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
@@ -169,9 +165,6 @@
         <redbox.agencyCode>AU-VLU</redbox.agencyCode>
         <redbox.agencyName>La Trobe University</redbox.agencyName>
         <redbox.pidProperty>nlaPid</redbox.pidProperty>
-
-        <smtp.host>{Ew4Zg6L2hA0HYFspL7tybnBWRz1MSbS7ffkti8plP8xRp+GzRdE2GaKFtTLmSRWf}</smtp.host>
-        <admin.email>{mhGy28m0IqQHH+lT4RlDQXjOSOGtsgRdvIxcqYQ9J98nz3tZRZ/6ZIMaMGH9cayP}</admin.email>
 
         <redbox.Institution>La Trobe University</redbox.Institution>
         <redbox.RIFCSGroup>La Trobe University</redbox.RIFCSGroup>

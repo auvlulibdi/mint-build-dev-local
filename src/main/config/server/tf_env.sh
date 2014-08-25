@@ -6,7 +6,7 @@
 # export SERVER_URL="http://localhost/mint/"
 export SERVER_URL="${server.url}"
 export LOCAL_PORT="9001"
-export PROJECT_HOME="${apt.location.linux}"
+export PROJECT_HOME="${project.home}/"
 export AMQ_PORT="9201"
 export AMQ_STOMP_PORT="9202"
 export SMTP_HOST="${smtp.host}"
