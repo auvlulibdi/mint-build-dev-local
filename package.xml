@@ -8,7 +8,7 @@
   <fileSets>
     <!-- nearly everything -->
     <fileSet>
-      <directory>${project.home}</directory>
+      <directory>src/main/config</directory>
       <outputDirectory>mint</outputDirectory>
       <includes>
         <include>home/**</include>
@@ -22,7 +22,7 @@
     </fileSet>
     <!-- control scripts -->
     <fileSet>
-      <directory>${project.home}</directory>
+      <directory>src/main/config</directory>
       <outputDirectory>mint</outputDirectory>
       <includes>
         <include>server/*.sh</include>
