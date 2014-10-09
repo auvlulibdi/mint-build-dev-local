@@ -22,6 +22,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <mint.version>1.7</mint.version>
+    <redbox.version>1.7</redbox.version>
     <project.home>/opt/mint</project.home>
 
     <!-- Runtime values, will replace placeholders in config and control scripts -->
@@ -218,7 +219,7 @@
                 <!-- Most config copied first as is -->
                 <resource>
                   <directory>src/main/config/home</directory>
-                  <filtering>false</filtering>
+                  <filtering>true</filtering>
                 </resource>
               </resources>
             </configuration>
