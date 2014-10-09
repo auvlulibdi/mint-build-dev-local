@@ -21,8 +21,8 @@
     <!-- Used in build -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <mint.version>1.7</mint.version>
-    <redbox.version>1.7</redbox.version>
+    <mint.version>1.6.2</mint.version>
+    <redbox.version>1.6.2</redbox.version>
     <project.home>/opt/mint</project.home>
 
     <!-- Runtime values, will replace placeholders in config and control scripts -->
