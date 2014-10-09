@@ -13,7 +13,7 @@
   <parent>
     <groupId>com.googlecode.redbox-mint</groupId>
     <artifactId>mint</artifactId>
-    <version>1.6.2</version>
+    <version>1.7</version>
   </parent>
 
   <properties>
@@ -22,8 +22,8 @@
     <!-- Used in build -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <mint.version>1.6.2</mint.version>
-    <project.home>/opt/mint-${mint.version}</project.home>
+    <mint.version>1.7</mint.version>
+    <project.home>/opt/mint</project.home>
 
     <!-- Runtime values, will replace placeholders in config and control scripts -->
     <!-- 20140806 : cja : see settings.xml for (other) property assignments -->
