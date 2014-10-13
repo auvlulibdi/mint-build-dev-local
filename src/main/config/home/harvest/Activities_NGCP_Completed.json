@@ -2,7 +2,7 @@
     "harvester": {
         "type": "csv",
         "csv": {
-            "fileLocation": "${fascinator.home}/data/Activities_NGCP_Completed_UoN.csv",
+            "fileLocation": "${fascinator.home}/data/Activities_NGCP_Completed_LTU.csv",
             "idColumn": "ID",
             "recordIDPrefix": "http://purl.org/au-research/grants/arc/",
             "headerRow": true,
