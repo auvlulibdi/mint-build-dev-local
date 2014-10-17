@@ -3,18 +3,18 @@
 # this script sets the environment for other fascinator scripts
 #
 
-# export SERVER_URL="http://localhost/mint/"
-export SERVER_URL="${server.url}"
-export LOCAL_PORT="9001"
-export PROJECT_HOME="${project.home}/"
-export AMQ_PORT="9201"
-export AMQ_STOMP_PORT="9202"
+export SERVER_URL="${server.url}/"
+export LOCAL_PORT="${server.port}"
+export PROJECT_HOME="${project.home}"
+export AMQ_PORT="${amq.port}"
+export AMQ_STOMP_PORT="${amq.stomp.port}"
 export SMTP_HOST="${smtp.host}"
 export ADMIN_EMAIL="${admin.email}"
-export NON_PROXY_HOSTS="localhost"
+export NON_PROXY_HOSTS="${non.proxy.hosts}"
 
 # set fascinator home directory
 export TF_HOME="$PROJECT_HOME/home"
+export FASCINATOR_HOME="${TF_HOME}"
 export REDBOX_VERSION="${mint.version}"
 
 # java class path

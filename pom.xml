@@ -13,17 +13,16 @@
   <parent>
     <groupId>com.googlecode.redbox-mint</groupId>
     <artifactId>mint</artifactId>
-    <version>1.7</version>
+    <version>1.7-SNAPSHOT</version>
   </parent>
 
   <properties>
 
+    <mint.version>1.7-SNAPSHOT</mint.version>
+    <redbox.version>1.7</redbox.version>
+
     <!-- Used in build -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-    <mint.version>1.6.2</mint.version>
-    <redbox.version>1.6.2</redbox.version>
-    <project.home>/opt/mint</project.home>
 
     <!-- Runtime values, will replace placeholders in config and control scripts -->
     <!-- 20140806 : cja : see settings.xml for (other) property assignments -->
@@ -63,7 +62,7 @@
       <type>pom</type>
       <version>${mint.version}</version>
 
-    <!-- Stop warning about multiple slf4j bindings -->
+    <!-- Stop warning about multiple slf4j bindings
     <exclusions>
       <exclusion> 
         <groupId>org.slf4j</groupId>
@@ -74,6 +73,7 @@
         <artifactId>log4j</artifactId>
       </exclusion>
     </exclusions>  
+    -->
 
     </dependency>
     <dependency>
@@ -102,7 +102,7 @@
       <groupId>com.googlecode.the-fascinator</groupId>
       <artifactId>fascinator-portal</artifactId>
       <type>warpath</type>
-      <version>1.1.5</version>
+      <version>1.2</version>
     </dependency>
 
   </dependencies>

@@ -6,7 +6,7 @@
         "RIF-CS Group": "${redbox.RIFCSGroup}"
     },
     "configured": true,
-    "urlBase": "${server.url.base}",
+    "urlBase": "${server.url}/",
     "email": "DO_NOT_CHANGE",
     "sso": {
         "plugins": [],
