@@ -10,6 +10,10 @@ import org.dom4j.Node;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/* 
+ * ExtNLAIdentity enables additional information to be displayed in the NLA-lookup form of the ReDBox interface 
+ * It was created by Volodymyr Popyvych in 2012 as part of the ANDS MDS project 
+ */
 public class ExtNLAIdentity extends NLAIdentity {
 
 	/** Logging **/

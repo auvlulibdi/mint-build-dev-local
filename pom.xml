@@ -44,6 +44,16 @@
 
   </properties>
 
+  <!-- 
+    SRU Module required for enabling NLA-lookup from within ReDBox interface (=work done by Volodymyr Popyvych in 2012)
+    - 'ExtNLALookup.java' is the code that does the work 
+    - Other .java files under sru in source tree are pulled across from mint build so that the sru-class compiles up ok
+    - Be sure to check the sru .pom when upgrading
+  -->
+  <modules>
+    <module>plugins/sru/sruclient</module>
+  </modules>
+
   <dependencies>
     <!-- Mint Core - We want to explicitly define versions here because
              ReDBox is listed as both a dependency and a parent. Some odd
