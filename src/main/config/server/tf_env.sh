@@ -3,9 +3,9 @@
 # this script sets the environment for other fascinator scripts
 #
 
-export SERVER_URL="${server.url.base}"
+export SERVER_URL="${server.url}/"
 export LOCAL_PORT="${server.port}"
-export PROJECT_HOME="${app.location.linux}"
+export PROJECT_HOME="${project.home}"
 export AMQ_PORT="${amq.port}"
 export AMQ_STOMP_PORT="${amq.stomp.port}"
 export SMTP_HOST="${smtp.host}"
@@ -21,7 +21,7 @@ export REDBOX_VERSION="${mint.version}"
 export CLASSPATH="plugins/*:lib/*"
 
 # jvm memory settings
-JVM_OPTS="-XX:MaxPermSize=256m -Xmx512m"
+JVM_OPTS="-XX:MaxPermSize=1024m -Xmx1024m"
 
 # logging directories
 export SOLR_LOGS=$TF_HOME/logs/solr
