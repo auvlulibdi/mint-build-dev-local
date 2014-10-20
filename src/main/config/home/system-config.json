@@ -2,11 +2,11 @@
     "version": "1.1.0.1",
     "redbox.version.string": "${redbox.version}",
     "redbox.identity": {
-        "institution": "${redbox.Institution}",
-        "RIF-CS Group": "${redbox.RIFCSGroup}"
+        "institution": "University of Examples",
+        "RIF-CS Group": "The University of Examples, Australia"
     },
     "configured": true,
-    "urlBase": "${server.url}/",
+    "urlBase": "${server.url.base}",
     "email": "DO_NOT_CHANGE",
     "sso": {
         "plugins": [],
@@ -108,10 +108,10 @@
         "curationRequiresConfirmation": false,
         "pidProperty": "localPid",
         "nlaIntegration": {
-            "enabled": true,
-            "pidProperty": "${redbox.pidProperty}",
-            "agencyCode": "${redbox.agencyCode}",
-            "agencyName": "${redbox.agencyName}",
+            "enabled": false,
+            "pidProperty": "nlaPid",
+            "agencyCode": "TO-DO",
+            "agencyName": "The University of Examples, Australia",
             "includeTest": {
                 "repository.name": "People"
             }

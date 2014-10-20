@@ -1,5 +1,11 @@
-Mint - La Trobe University
-==========================
+Mint - Local Curation Demo
+======================
 
-AU-VLU LTU DI ReDBoxMint Mint 
+Sample institutional build with file system storage and local curation.
 
+Downloaded the latest builds here:
+
+* [Release](http://dev.redboxresearchdata.com.au/nexus/service/local/artifact/maven/redirect?r=releases&g=com.googlecode.redbox-mint&a=mint-local-curation-demo&v=LATEST&c=build&e=tar.gz)
+* [Development Snapshot](http://dev.redboxresearchdata.com.au/nexus/service/local/artifact/maven/redirect?r=snapshots&g=com.googlecode.redbox-mint&a=mint-local-curation-demo&v=LATEST&c=build&e=tar.gz)
+
+Please refer to http://www.redboxresearchdata.com.au/documentation/how-to/institutional-builds
