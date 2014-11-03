@@ -4,8 +4,9 @@
     <!-- <groupId>com.googlecode.redbox-mint</groupId> -->
     <groupId>au.edu.latrobe.ltudiginf</groupId>
     <artifactId>sruclient-mint</artifactId>
-    <version>1.7-SNAPSHOT</version>
+    <version>73</version>
     <name>The Mint - SRU Client</name>
+    <url>http://130.56.250.123:8080/job/mint-build-ltu/</url>
     <parent>
         <groupId>com.googlecode.redbox-mint</groupId>
         <artifactId>mint-project</artifactId>
@@ -24,4 +25,22 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <scm>
+      <connection>scm:git:ssh://git@github.com/auvlulibdi/mint-build-ltu.git</connection>
+    </scm>
+  
+    <distributionManagement>
+      <snapshotRepository>
+        <id>nexus-ltu</id>
+        <name>Nexus Snapshots LTU</name>
+        <url>http://130.56.250.123:8081/nexus/content/repositories/snapshots/</url>
+      </snapshotRepository>
+      <repository>
+        <id>nexus-ltu</id>
+        <name>Nexus Releases LTU</name>
+        <url>http://130.56.250.123:8081/nexus/content/repositories/releases/</url>
+      </repository>
+    </distributionManagement>
+
 </project>
