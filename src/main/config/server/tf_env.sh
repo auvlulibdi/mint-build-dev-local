@@ -13,7 +13,7 @@ export ADMIN_EMAIL="${admin.email}"
 export NON_PROXY_HOSTS="${non.proxy.hosts}"
 
 # set fascinator home directory
-export TF_HOME="$PROJECT_HOME/home"
+export TF_HOME="${PROJECT_HOME}/home"
 export FASCINATOR_HOME="${TF_HOME}"
 export REDBOX_VERSION="${mint.version}"
 
