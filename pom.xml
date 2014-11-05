@@ -21,6 +21,9 @@
     <mint.version>1.7-SNAPSHOT</mint.version>
     <redbox.version>1.7</redbox.version>
 
+    <!-- project.home gets set to /opt/redbox even though is set to /opt/mint in ~/.m2/settings.xml; have to set here -->
+    <project.home>/opt/mint</project.home>
+
     <!-- Used in build -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
