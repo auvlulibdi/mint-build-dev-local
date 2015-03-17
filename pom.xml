@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>au.edu.latrobe.ltudiginf</groupId>
   <artifactId>mint-build-ltu</artifactId>
-  <version>1.7-25-DEV</version>
+  <version>1.7-26-DEV</version>
   <packaging>${packaging}</packaging>
   <name>Mint - La Trobe University</name>
   <url>http://130.56.250.123:8080/job/mint-build-ltu/</url>
