@@ -99,11 +99,12 @@
       <artifactId>plugin-transaction-curation-mint</artifactId>
       <version>${mint.version}</version>
     </dependency>
-    <!-- ${mint.version} -> 2.0 because that is what is specified in the replacement version of sruclient-mint (see plugins/sru/sruclient/pom.xml) -->
+    <!-- check : mint.version ok? -->
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>sruclient-mint</artifactId>
-      <version>2</version>
+      <!-- <version>${mint.version}</version> -->
+      <version>1.7-29-DEV</version>
     </dependency>
     <!-- Mint Curation Plugin -->
     <dependency>
