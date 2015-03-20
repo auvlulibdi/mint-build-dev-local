@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>au.edu.latrobe.ltudiginf</groupId>
   <artifactId>mint-build-ltu</artifactId>
-  <version>1.7-32-DEV</version>
+  <version>1.7-33-DEV</version>
   <packaging>${packaging}</packaging>
   <name>Mint - La Trobe University</name>
   <url>http://130.56.250.123:8080/job/mint-build-ltu/</url>
@@ -53,9 +53,11 @@
     - Other .java files under sru in source tree are pulled across from mint build so that the sru-class compiles up ok
     - Be sure to check the sru .pom when upgrading
   -->
+  <!-- 20150320 : cja : disabling because does not work with compiled in
   <modules>
     <module>plugins/sru/sruclient</module>
   </modules>
+  -->
 
   <dependencies>
     <!-- Mint Core - We want to explicitly define versions here because
@@ -100,6 +102,7 @@
       <version>${mint.version}</version>
     </dependency>
     <!-- check : mint.version ok? -->
+    <!-- check -->
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>sruclient-mint</artifactId>
