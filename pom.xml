@@ -6,19 +6,19 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>au.edu.latrobe.ltudiginf</groupId>
   <artifactId>mint-build-ltu</artifactId>
-  <version>1.7-28-DEV</version>
+  <version>1.7-29-DEV</version>
   <packaging>${packaging}</packaging>
   <name>Mint - La Trobe University</name>
   <url>http://130.56.250.123:8080/job/mint-build-ltu/</url>
   <parent>
     <groupId>com.googlecode.redbox-mint</groupId>
     <artifactId>mint</artifactId>
-    <version>1.7-SNAPSHOT</version>
+    <version>1.7</version>
   </parent>
 
   <properties>
 
-    <mint.version>1.7-SNAPSHOT</mint.version>
+    <mint.version>1.7</mint.version>
     <redbox.version>1.7</redbox.version>
 
     <!-- project.home gets set to /opt/redbox even though is set to /opt/mint in ~/.m2/settings.xml; have to set here -->
@@ -99,10 +99,11 @@
       <artifactId>plugin-transaction-curation-mint</artifactId>
       <version>${mint.version}</version>
     </dependency>
+    <!-- ${mint.version} -> 2.0 because that is what is specified in the replacement version of sruclient-mint (see plugins/sru/sruclient/pom.xml) -->
     <dependency>
       <groupId>com.googlecode.redbox-mint</groupId>
       <artifactId>sruclient-mint</artifactId>
-      <version>${mint.version}</version>
+      <version>2</version>
     </dependency>
     <!-- Mint Curation Plugin -->
     <dependency>

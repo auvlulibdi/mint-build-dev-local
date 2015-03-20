@@ -4,13 +4,13 @@
     <!-- <groupId>com.googlecode.redbox-mint</groupId> -->
     <groupId>au.edu.latrobe.ltudiginf</groupId>
     <artifactId>sruclient-mint</artifactId>
-    <version>1.7-28-DEV</version>
+    <version>1.7-29-DEV</version>
     <name>The Mint - SRU Client</name>
     <url>http://130.56.250.123:8080/job/mint-build-ltu/</url>
     <parent>
         <groupId>com.googlecode.redbox-mint</groupId>
         <artifactId>mint-project</artifactId>
-        <version>1.7-SNAPSHOT</version>
+        <version>1.7</version>
         <relativePath>../../../parent/pom.xml</relativePath>
     </parent>
     <dependencies>
